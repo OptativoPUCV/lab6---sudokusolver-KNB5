@@ -43,7 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n) {
+/*int is_valid(Node* n) {
 
    int j, k, f, c;
 
@@ -62,6 +62,18 @@ int is_valid(Node* n) {
          }
       } 
    }
+
+   for (int fila = 0; fila < 9; fila++) {
+        int contador[10] = {0};
+        for (int col = 0; col < 9; col++) {
+            int num = sudoku[fila][col];
+            if (num != 0 && contador[num] == 1) {
+                return 0; // Sudoku no es válido
+            } else {
+                contador[num] = 1;
+            }
+        }
+    }
 
    for(k = 0; k < 9; k++)
    {
@@ -100,7 +112,63 @@ int is_valid(Node* n) {
          }
       }
    }
+   
    return 1;
+}*/
+
+
+int is_valid(Node* nodo) {
+    int sudoku[9][9]; // Copia la matriz del sudoku del nodo a una variable local
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            sudoku[i][j] = nodo->sudo[i][j];
+        }
+    }
+
+    // Verificar filas
+    for (int fila = 0; fila < 9; fila++) {
+        int contador[10] = {0};
+        for (int col = 0; col < 9; col++) {
+            int num = sudoku[fila][col];
+            if (num != 0 && contador[num] == 1) {
+                return 0; // Sudoku no es válido
+            } else {
+                contador[num] = 1;
+            }
+        }
+    }
+
+    // Verificar columnas
+    for (int col = 0; col < 9; col++) {
+        int contador[10] = {0};
+        for (int fila = 0; fila < 9; fila++) {
+            int num = sudoku[fila][col];
+            if (num != 0 && contador[num] == 1) {
+                return 0; // Sudoku no es válido
+            } else {
+                contador[num] = 1;
+            }
+        }
+    }
+
+    // Verificar submatrices 3x3
+    for (int fila_inicio = 0; fila_inicio < 9; fila_inicio += 3) {
+        for (int col_inicio = 0; col_inicio < 9; col_inicio += 3) {
+            int contador[10] = {0};
+            for (int fila = fila_inicio; fila < fila_inicio + 3; fila++) {
+                for (int col = col_inicio; col < col_inicio + 3; col++) {
+                    int num = sudoku[fila][col];
+                    if (num != 0 && contador[num] == 1) {
+                        return 0; // Sudoku no es válido
+                    } else {
+                        contador[num] = 1;
+                    }
+                }
+            }
+        }
+    }
+
+    return 1; // Sudoku es válido
 }
 
 List* get_adj_nodes(Node* n){
