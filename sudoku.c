@@ -52,13 +52,13 @@ int is_valid(Node* n) {
       int numF[10] = {0};
       for(k = 0; k < 9; k++)
       {
-         if(n->sudo[j][k] != 0 && numF[n->sudo[j][k]] == 0)
+         if(n->sudo[j][k] != 0 && numF[n->sudo[j][k]] == 1)
          {
-            numF[n->sudo[j][k]] = 1;
+            return 0;
          }
          else
          {
-            return 0;
+            numF[n->sudo[j][k]] = 1;
          }
       }
    }
@@ -68,13 +68,13 @@ int is_valid(Node* n) {
       int numC[10] = {0};
       for(j = 0; j < 9; j++)
       {
-         if(n->sudo[j][k] != 0 && numC[n->sudo[j][k]] == 0)
+         if(n->sudo[j][k] != 0 && numC[n->sudo[j][k]] == 1)
          {
-            numC[n->sudo[j][k] == 0] = 1;
+            return 0;
          }
          else
          {
-            return 0;
+            numC[n->sudo[j][k] == 0] = 1;
          }
       }
    }
@@ -88,13 +88,13 @@ int is_valid(Node* n) {
          {
             for(c = k; c < k + 3; c++)
             {
-               if(n->sudo[f][c] != 0 && numSM[n->sudo[f][c]] == 0)
+               if(n->sudo[f][c] != 0 && numSM[n->sudo[f][c]] == 1)
                {
-                  numSM[n->sudo[f][c]] = 1;
+                  return 0;
                }
                else
                {
-                  return 0;
+                  numSM[n->sudo[f][c]] = 1;
                }
             }
          }
