@@ -47,6 +47,66 @@ int is_valid(Node* n){
    int numF[10] = {0};
    int numC[10] = {0};
    int numSM[10] = {0};
+   int j, k, f, c;
+
+   for(j = 0; j < 9; j += 3)
+   {
+      for(k = 0; k < 9; k += 3)
+      {
+         for(f = j; f < j + 3; f++)
+         {
+            for(c = k; c < k + 3; c++)
+            {
+               if(n->sudo[f][c] != 0)
+               {
+                  if(numSM[n->sudo[f][c]] == 0)
+                  {
+                     numSM[n->sudo[f][c]] = 1;
+                  }
+                  else
+                  {
+                     return 0;
+                  }
+               }
+            }
+         }
+         for(c = 0; c < 9; c++)
+         {
+            if(n->sudo[j][c] != 0)
+            {
+               if(numF[n->sudo[j][c]] == 0)
+               {
+                  numF[n->sudo[j][c]] = 1;
+               }
+               else
+               {
+                  return 0;
+               }
+            }
+         }
+         for(f = 0; f < 9; f++)
+         {
+            if(n->sudo[f][k] != 0)
+            {
+               if(numC[n->sudo[f][k]] == 0)
+               {
+                  numC[n->sudo[f][k]] = 1;
+               }
+               else
+               {
+                  return 0;
+               }
+            }
+         }
+      }
+   }
+   return 1;
+}
+
+/*int is_valid(Node* n){
+   int numF[10] = {0};
+   int numC[10] = {0};
+   int numSM[10] = {0};
 
    int j, k, f, c;
    
@@ -102,7 +162,7 @@ int is_valid(Node* n){
       }
    }
    return 1;
-}
+}*/
 
 
 List* get_adj_nodes(Node* n){
