@@ -44,8 +44,8 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   int numF[10] = {0};
-   int numC[10] = {0};
+   //int numF[10] = {0};
+   //int numC[10] = {0};
    int numSM[10] = {0};
 
    int j, k, f, c;
