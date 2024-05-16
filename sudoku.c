@@ -43,49 +43,39 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* nodo) {
-    int sudoku[9][9];
-    for (int i = 0; i < 9; i++) {
+int is_valid(Node* n) {
+
+    for (int j = 0; j < 9; j++) {
+        int numF[10] = {0};
+        for (int k = 0; k < 9; k++) {
+            if (n->sudo[j][k] != 0 && numF[n->sudo[j][k]] == 1) {
+                return 0; 
+            } else {
+                numF[n->sudo[j][k]] = 1;
+            }
+        }
+    }
+
+    for (int k = 0; k < 9; k++) {
+        int numC[10] = {0};
         for (int j = 0; j < 9; j++) {
-            sudoku[i][j] = nodo->sudo[i][j];
-        }
-    }
-
-    // Verificar filas
-    for (int fila = 0; fila < 9; fila++) {
-        int contador[10] = {0};
-        for (int col = 0; col < 9; col++) {
-            int num = sudoku[fila][col];
-            if (num != 0 && contador[num] == 1) {
+            if (n->sudo[j][k] != 0 && numC[n->sudo[j][k]] == 1) {
                 return 0; 
             } else {
-                contador[num] = 1;
+                numC[n->sudo[j][k]] = 1;
             }
         }
     }
 
-    for (int col = 0; col < 9; col++) {
-        int contador[10] = {0};
-        for (int fila = 0; fila < 9; fila++) {
-            int num = sudoku[fila][col];
-            if (num != 0 && contador[num] == 1) {
-                return 0; 
-            } else {
-                contador[num] = 1;
-            }
-        }
-    }
-
-    for (int fila_inicio = 0; fila_inicio < 9; fila_inicio += 3) {
-        for (int col_inicio = 0; col_inicio < 9; col_inicio += 3) {
-            int contador[10] = {0};
-            for (int fila = fila_inicio; fila < fila_inicio + 3; fila++) {
-                for (int col = col_inicio; col < col_inicio + 3; col++) {
-                    int num = sudoku[fila][col];
-                    if (num != 0 && contador[num] == 1) {
+    for (int j = 0; j < 9; j += 3) {
+        for (int k = 0; k < 9; k += 3) {
+            int numSM[10] = {0};
+            for (int f = j; f < j + 3; j++) {
+                for (int c = k; c < k + 3; c++) {
+                    if (n->sudo[f][c] != 0 && numSM[n->sudo[f][c]] == 1) {
                         return 0;
                     } else {
-                        contador[num] = 1;
+                        numSM[n->sudo[f][c]] = 1;
                     }
                 }
             }
