@@ -80,26 +80,6 @@ int is_valid(Node* n){
                }
             }
          }
-         if((j % 3 == 0 && (k == 0 || k % 3 == 0)))
-         {
-            for(int f = j; f < j + 3; f++)
-            {
-               for(int c = k; c < k + 3; c++)
-               {
-                  if(n->sudo[f][c] != 0)
-                  {
-                     if(numSM[n->sudo[f][c]] == 0)
-                     {
-                        numSM[n->sudo[f][c]] = 1;
-                     }
-                     else
-                     {
-                        return 0;
-                     }
-                  }
-               }
-            }   
-         }
       }
    }
    return 1;
