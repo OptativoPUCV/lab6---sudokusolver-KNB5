@@ -71,9 +71,9 @@ int is_valid(Node* n){
          {
             if(n->sudo[f][k] != 0) 
             {
-               if(numF[n->sudo[f][k]] == 0)
+               if(numC[n->sudo[f][k]] == 0)
                {
-                  numF[n->sudo[f][k]] = 1;
+                  numC[n->sudo[f][k]] = 1;
                }
                else
                {
