@@ -54,10 +54,13 @@ List* get_adj_nodes(Node* n){
    int num = 1;
    for(int i = 0; i < 9 && num < 10; i++)
       {
-         Node* newNode = copy(n);
-         newNode->sudo[0][2] = num;
-         pushBack(adjList, newNode);
-         num++;
+         if(n->sudo[0][2] == 0)
+         {
+            Node* newNode = copy(n);
+            newNode->sudo[0][2] = num;
+            pushBack(adjList, newNode);
+            num++;
+         }
       }
    return adjList;
 }
