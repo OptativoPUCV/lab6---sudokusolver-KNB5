@@ -243,3 +243,9 @@ sudoku.c:69:23: error: ‘sudoku’ undeclared (first use in this function)
 sudoku.c:69:23: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 ce96d60
+Thu 16 May 2024 06:29:24 AM UTC: 
+ sudoku.c | 128 ++++++++++++---------------------------------------------------
+ 1 file changed, 23 insertions(+), 105 deletions(-)
+ tests:  5|3
+total_score: 35/70
+66a9c66
