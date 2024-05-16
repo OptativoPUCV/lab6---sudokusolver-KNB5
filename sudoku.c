@@ -46,7 +46,7 @@ void print_node(Node* n){
 int is_valid(Node* n) {
    
    int j, k, f, c;
-
+   
    for(j = 0; j < 9; j++) 
    {
       int numF[10] = {0};
@@ -81,9 +81,9 @@ int is_valid(Node* n) {
 
    for(j = 0; j < 9; j += 3)
    {
-      int numSM[10] = {0};
       for(k = 0; k < 9; k += 3)
       {
+         int numSM[10] = {0};
          for(f = j; f < j + 3; f++)
          {
             for(c = k; c < k + 3; c++)
@@ -100,7 +100,6 @@ int is_valid(Node* n) {
          }
       }
    }
-
    return 1;
 }
 
