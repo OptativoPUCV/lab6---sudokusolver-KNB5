@@ -43,7 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n) {
+/*int is_valid(Node* n) {
    
    int j, k, f, c;
    
@@ -81,9 +81,9 @@ int is_valid(Node* n) {
 
    for(j = 0; j < 9; j += 3)
    {
+      int numSM[10] = {0};
       for(k = 0; k < 9; k += 3)
       {
-         int numSM[10] = {0};
          for(f = j; f < j + 3; f++)
          {
             for(c = k; c < k + 3; c++)
@@ -101,18 +101,16 @@ int is_valid(Node* n) {
       }
    }
    return 1;
-}
+}*/
 
 
-/*int is_valid(Node* n){
-   //int numF[10] = {0};
-   //int numC[10] = {0};
-   int numSM[10] = {0};
+int is_valid(Node* n){
 
    int j, k, f, c;
    
    for(j = 0; j < 9; j += 3)
    {
+      int numSM[10] = {0};
       for(k = 0; k < 9; k += 3)
       {
          for(f = 0; f < j + 3; f++)
@@ -137,6 +135,7 @@ int is_valid(Node* n) {
 
    for(j = 0; j < 9; j++)
    {
+      int numF[10] = {0};
       for(k = 0; k < 9; k++)
       {
          for(c = 0; c < 9; c++)
@@ -155,6 +154,7 @@ int is_valid(Node* n) {
          }
          for(f = 0; f < 9; f++)
          {
+            int numC[10] = {0};
             if(n->sudo[f][k] != 0)
             {
                if(numC[n->sudo[f][k]] == 0)
@@ -170,7 +170,7 @@ int is_valid(Node* n) {
       }
    }
    return 1;
-}*/
+}
 
 
 List* get_adj_nodes(Node* n){
