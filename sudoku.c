@@ -74,7 +74,7 @@ int is_valid(Node* n){
       }
    }
 
-   for(j = 0; j < 9; j++)
+   /*for(j = 0; j < 9; j++)
    {
       for(k = 0; k < 9; k++)
       {
@@ -107,7 +107,7 @@ int is_valid(Node* n){
             }
          }
       }
-   }
+   }*/
    return 1;
 }
 
