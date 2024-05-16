@@ -72,10 +72,10 @@ int is_valid(Node* n) {
             int numSM[10] = {0};
             for (int f = j; f < j + 3; f++) {
                 for (int c = k; c < k + 3; c++) {
-                    if (n->sudo[f][c] != 0 && numSM[n->sudo[f][c]] == 1) {
-                        return 0;
+                    if (n->sudo[f][c] != 0 && numSM[n->sudo[f][c]] == 0) {
+                       numSM[n->sudo[f][c]] = 1;
                     } else {
-                        numSM[n->sudo[f][c]] = 1;
+                        return 0;
                     }
                 }
             }
