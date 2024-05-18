@@ -127,6 +127,7 @@ List* get_adj_nodes(Node* n){
          }
          if(create) break;
       }
+      if(create) break;
    }   
    return adjList;
 }
