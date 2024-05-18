@@ -161,9 +161,7 @@ Node* DFS(Node* initial, int* cont){
       {
          return firstNode;
       }
-      
       List* listaAdj = get_adj_nodes(firstNode);
-      int largoLista = get_size(listaAdj);
       for(int i = 0; i < get_size(listaAdj); i++)
       {
          Node* aux = first(listaAdj);
