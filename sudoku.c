@@ -107,12 +107,14 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n){
    List* adjList = createList();
    int num = 1;
+   int create = 0;
    for(int j = 0; j < 9; j++)
    {
       for(int k = 0; k < 9; k++)
       {
          if(n->sudo[j][k] == 0)
          {
+            create = 1;
             for(int i = 0; i < 9; i++, num++)
             {
                Node* newNode = copy(n);
@@ -123,7 +125,9 @@ List* get_adj_nodes(Node* n){
                }
             }
          }
+         if(create) break;
       }
+      if(create) break;
    }   
    return adjList;
 }
