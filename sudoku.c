@@ -156,7 +156,6 @@ Node* DFS(Node* initial, int* cont){
    while(top(pilaNodos) != NULL)
    {
       Node* firstNode = top(pilaNodos); cont++;
-      free(top(pilaNodos));
       pop(pilaNodos);
       if(is_final(firstNode))
       {
@@ -170,6 +169,7 @@ Node* DFS(Node* initial, int* cont){
          push(pilaNodos, aux);
          aux = next(listaAdj);
       }
+      free(firstNode);
    }
    free(pilaNodos);
    return NULL;
