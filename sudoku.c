@@ -155,7 +155,7 @@ Node* DFS(Node* initial, int* cont){
 
    while(top(pilaNodos) != NULL)
    {
-      Node* firstNode = top(pilaNodos); cont++;
+      Node* firstNode = top(pilaNodos);
       pop(pilaNodos);
       if(is_final(firstNode))
       {
