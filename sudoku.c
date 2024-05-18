@@ -166,6 +166,7 @@ Node* DFS(Node* initial, int* cont){
       {
          Node* aux = first(listaAdj);
          push(pilaNodos, aux);
+         aux = next(listaAdj);
       }
    }
    
