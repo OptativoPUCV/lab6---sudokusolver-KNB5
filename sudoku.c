@@ -150,7 +150,30 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
-  return NULL;
+   Stack* pilaNodos = createStack();
+   push(pilaNodos, initial);
+
+   while(top(pilaNodos) != NULL)
+   {
+      Node* firstNode = top(pilaNodos);
+      pop(pilaNodos);
+      if(is_final(firstNode))
+      {
+         return firstNode;
+      }
+      
+      List* listaAdj = get_adj_nodes(firstNode);
+      int largoLista = get_size(listaAdj);
+      for(int i = 0; i < get_size(listaAdj); i++)
+      {
+         Node* aux = first(listaAdj);
+         push(pilaNodos, aux);
+      }
+   }
+   
+   free(pilaNodos);
+   
+   return NULL;
 }
 
 
