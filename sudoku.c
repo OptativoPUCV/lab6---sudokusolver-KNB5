@@ -163,7 +163,7 @@ Node* DFS(Node* initial, int* cont){
       List* listaAdj = get_adj_nodes(firstNode);
       Node* aux = first(listaAdj);
       
-      for(int i = 0; i < get_size(listaAdj); i++)
+      while(aux)
       {
          push(pilaNodos, aux);
          aux = next(listaAdj);
